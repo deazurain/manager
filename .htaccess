@@ -1,5 +1,12 @@
 RewriteEngine On
 
-RewriteCond %{REQUEST_URI} !.*\.(js|css|jpg|png)
-RewriteCond %{REQUEST_URI} !manager\.php
-RewriteRule ^(.*)$ manager.php/$1 [L,QSA]
+# do not rewrite if the uri starts with /manager.php/
+# to avoid infinite recursion.
+RewriteCond %{REQUEST_URI} !^/manager\.php/
+
+# do not rewrite asset uris.
+RewriteCond %{REQUEST_URI} !^.*\.(js|css|jpg|png)$
+
+# rewrite the [uri] to manager.php/[uri].
+RewriteRule ^(.*)$ manager.php/$1 [QSA]
+
