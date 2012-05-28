@@ -1,0 +1,11 @@
+
+manager core
+
+loads core manager things
+
+classes
+
+Module - internal class that registers paths to a modules' files
+Path - creates system or web paths to resources
+Manager - loads core utilities
+
