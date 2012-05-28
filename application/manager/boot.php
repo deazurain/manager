@@ -31,5 +31,3 @@ require 'core/path.php';
 require 'core/manager.php';
 
 Manager::boot($manager_directory, $module_directory);
-
-?>

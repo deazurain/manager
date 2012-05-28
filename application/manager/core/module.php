@@ -48,7 +48,7 @@ class Module {
      * @static
      * @param $module
      */
-    public static function add($module) {
+    public static function add(Module $module) {
 
         self::$_modules[$module->name()] = $module;
 
@@ -60,7 +60,7 @@ class Module {
      *
      * @static
      * @param $module_name
-     * @return The module if it is found, null otherwise.
+     * @return Module the module if it is found, null otherwise.
      */
     public static function get($module_name) {
 
@@ -137,7 +137,7 @@ class Module {
     private $_directory;
     private $_properties;
 
-    public function __construct($name, $directory, $properties = NULL) {
+    public function __construct($name, $directory, array $properties = NULL) {
 
         $this->_name = strtolower(trim($name));
         $this->_directory = realpath($directory) . DIRECTORY_SEPARATOR;
